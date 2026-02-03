@@ -7,17 +7,20 @@ const express = require('express');
 const app = express();
 const startingPort = process.env.PORT ? Number(process.env.PORT) : 3000;
 
+// server routes
 app.get('/', (req, res) => {
   res.json({ message: 'Furnace API is running' });
+});
+
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'API is healthy' });
 });
 
 // db routes
 const dbRoutes = require('./routes/db');
 app.use('/db', dbRoutes);
 
-app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'API is healthy' });
-});
+
 
 function startServer(port, attempts = 5) {
   const server = app.listen(port, () => {
