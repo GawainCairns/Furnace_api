@@ -5,7 +5,7 @@ const pool = require('./pool');
     const connection = await pool.getConnection();
     await connection.ping();
     connection.release();
-    console.log('Database connection successful');
+    console.log('ok');
   } catch (err) {
     console.error('Database connection failed:', err.message);
   }

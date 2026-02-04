@@ -9,11 +9,11 @@ const startingPort = process.env.PORT ? Number(process.env.PORT) : 3000;
 
 // server routes
 app.get('/', (req, res) => {
-  res.json({ message: 'Furnace API is running' });
+  res.json({ message: 'ok' });
 });
 
 app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'API is healthy' });
+  res.status(200).json({ status: 'ok' });
 });
 
 // db routes
